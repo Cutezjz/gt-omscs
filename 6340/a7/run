@@ -1,0 +1,40 @@
+#!/bin/bash
+# -*-bash-*-
+
+display_usage() {
+    echo "Usage:"
+    echo "  bash $0 [target] [analysis]"
+    echo ""
+    echo "Options:"
+    echo "  target:   array_demo, complex_test, fibo_test, greatest_test"
+    echo "  analysis: liveness, reachdef"
+}
+
+# if less than two arguments supplied, display usage
+if [ $# -le 1 ]
+then
+    display_usage
+    exit 1
+fi
+
+# check whether user had supplied -h or --help
+if [[ ( $# == "--help") ||  $# == "-h" ]]
+then
+    display_usage
+    exit 0
+fi
+
+echo "COMPILING"
+ant -Dchord.work.dir=examples/$1/ compile
+echo ""
+
+echo "RUNNING ANALYSIS"
+ant -Dchord.work.dir=examples/$1/ $2
+echo ""
+
+echo "COMPARING OUTPUT TO EXPECTED ($1) ($2)"
+node checker/index.js $1 $2
+echo ""
+
+echo "FINISHED"
+exit 0
