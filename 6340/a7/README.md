@@ -24,13 +24,13 @@ Build the projects:
 
 ```
 $ cd <DIR>/dataflow/cs6340/examples/array_demo
-$ ant build
+$ ant compile
 $ cd <DIR>/dataflow/cs6340/examples/greatest_test
-$ ant build
+$ ant compile
 $ cd <DIR>/dataflow/cs6340/examples/fibo_test
-$ ant build
+$ ant compile
 $ cd <DIR>/dataflow/cs6340/examples/complex_test
-$ ant build
+$ ant compile
 ```
 
 ## Usage
