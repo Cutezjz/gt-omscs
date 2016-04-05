@@ -1,0 +1,9 @@
+
+# GENERAL
+
+.DS_Store
+
+# DEPENDENCIES
+
+node_modules
+bower_components
