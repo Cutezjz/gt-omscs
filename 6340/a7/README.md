@@ -1,5 +1,5 @@
 
-# OMSCS Spring 2016 6340 Assignment 7: Dataflow Analysis
+# OMSCS Spring 2016 6340 Assignment 7
 
 This repo contains a Node.js script for checking work and a bash script for automating the checking process.
 
