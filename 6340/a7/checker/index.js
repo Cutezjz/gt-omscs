@@ -9,6 +9,10 @@ var q = require('q');
 var fs = require('fs');
 var path = require('path');
 
+/******************************************************************************
+ * GLOBALS
+ ******************************************************************************/
+
 var parsedCommand = {};
 
 /******************************************************************************
@@ -77,7 +81,7 @@ function parseCommand() {
             analysis: getFlag(args, ['reachdef', 'liveness'])
         };
 
-        if (_.isEmpty(_.omitBy(parsedCommand, _.isNull))) {
+        if (!_.isEmpty(_.pickBy(parsedCommand, _.isNull))) {
             return reject(usage());
         } else {
             return resolve(parsedCommand);
@@ -161,12 +165,12 @@ function parseFile(lines) {
 
             var inSet = parseFromLineSet(lines[index + 1]);
             if (_.isNull(inSet)) {
-                throw new Error('contains invalid set of pairs at line ' + (index + 1));
+                throw new Error('contains invalid set of paris at line ' + (index + 1));
             }
 
             var outSet = parseFromLineSet(lines[index + 2]);
             if (_.isNull(outSet)) {
-                throw new Error('contains invalid set of pairs at line ' + (index + 2));
+                throw new Error('contains invalid set of paris at line ' + (index + 2));
             }
 
             results[quadId] = {
