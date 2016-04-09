@@ -33,7 +33,10 @@ ant -Dchord.work.dir=examples/$1/ $2
 echo ""
 
 echo "COMPARING OUTPUT TO EXPECTED ($1) ($2)"
-node checker/index.js $1 $2
+case $( uname -s ) in
+Linux) nodejs checker/index.js $1 $2;;
+*)     node checker/index.js $1 $2;;
+esac
 echo ""
 
 echo "FINISHED"
