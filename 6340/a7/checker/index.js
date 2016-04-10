@@ -207,7 +207,7 @@ function parseFromLineSet(line) {
         return null;
     }
 
-    var set = line.substring(5);
+    var set = line.substring(line.indexOf(':') + 1);
     if (_.isEmpty(set)) {
         return [];
     }
