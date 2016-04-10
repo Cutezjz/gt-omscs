@@ -165,12 +165,12 @@ function parseFile(lines) {
 
             var inSet = parseFromLineSet(lines[index + 1]);
             if (_.isNull(inSet)) {
-                throw new Error('contains invalid set of paris at line ' + (index + 1));
+                throw new Error('contains invalid set of pairs at line ' + (index + 1));
             }
 
             var outSet = parseFromLineSet(lines[index + 2]);
             if (_.isNull(outSet)) {
-                throw new Error('contains invalid set of paris at line ' + (index + 2));
+                throw new Error('contains invalid set of pairs at line ' + (index + 2));
             }
 
             results[quadId] = {
