@@ -1,0 +1,16 @@
+{
+  "name": "checker",
+  "version": "1.0.0",
+  "description": "checks work",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mehmet Bajin <bajin.mehmet@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.8.1",
+    "q": "^1.4.1"
+  }
+}

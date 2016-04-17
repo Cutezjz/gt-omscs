@@ -4,41 +4,45 @@
 display_usage() {
     echo "Usage:"
     echo "  bash $0 [target] [analysis]"
-    echo ""
+    echo
     echo "Options:"
     echo "  target:   array_demo, complex_test, fibo_test, greatest_test"
     echo "  analysis: liveness, reachdef"
 }
 
-# if less than two arguments supplied, display usage
-if [ $# -le 1 ]
-then
+# if fewer than two arguments supplied, display usage
+if [ $# -le 1 ]; then
     display_usage
     exit 1
 fi
 
 # check whether user had supplied -h or --help
-if [[ ( $# == "--help") ||  $# == "-h" ]]
-then
+if [[ ( $# == "--help") ||  $# == "-h" ]]; then
     display_usage
     exit 0
 fi
 
-echo "COMPILING"
+echo "COMPILING ($1)"
 ant -Dchord.work.dir=examples/$1/ compile
-echo ""
+if [ $? -ne 0 ]; then
+    exit 1
+fi
+echo
 
-echo "RUNNING ANALYSIS"
+echo "RUNNING ANALYSIS ($1, $2)"
 ant -Dchord.work.dir=examples/$1/ $2
-echo ""
+if [ $? -ne 0 ]; then
+    exit 1
+fi
+echo
 
-echo "COMPARING OUTPUT TO EXPECTED ($1) ($2)"
+echo "COMPARING OUTPUT TO EXPECTED ($1, $2)"
 if hash nodejs 2>/dev/null; then
     nodejs checker/index.js $1 $2
 else
     node checker/index.js $1 $2
 fi
-echo ""
+echo
 
 echo "FINISHED"
 exit 0

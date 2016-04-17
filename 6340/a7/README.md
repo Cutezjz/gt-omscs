@@ -1,7 +1,12 @@
 
 # OMSCS Spring 2016 6340 Assignment 7
 
-This repo contains a Node.js script for checking work and a bash script for automating the checking process.
+This repo contains two scripts:
+
+1. Node.js script that checks work by comparing your output to the reference.
+2. Bash script that automates the build-and-check process.
+
+The checker includes handling for out-of-order Quads and IN/OUT set members.
 
 ## Getting Started
 
@@ -13,7 +18,7 @@ $ cd gt-omscs/6340/a7/checker
 $ npm install
 ```
 
-Copy the contents of the `a7` directory into the `<DIR>/dataflow/cs6340` directory, where `<DIR>` is where you downloaded the assignment files:
+Copy the contents of the `a7` directory into the `<DIR>/dataflow/cs6340` directory (`<DIR>` is where you downloaded the assignment files):
 
 ```
 $ cd ..
@@ -35,45 +40,20 @@ $ ant compile
 
 ## Usage
 
-The bash script takes two arguments that determine which target and which analysis output are checked:
+The bash script takes two arguments, one for the target and one for the analysis:
 
 ```
 $ cd <DIR>/dataflow/cs6340
 $ bash run -h
 ```
 
-Example output for checking `liveness` against `greatest_test`:
+For example, checking `liveness` against `greatest_test`:
 
 ```
-mbajin cs6340 $ bash run greatest_test liveness
-COMPILING
-Buildfile: /Users/mbajin/Downloads/dataflow/cs6340/build.xml
-
-compile:
-
-BUILD SUCCESSFUL
-Total time: 0 seconds
-
-RUNNING ANALYSIS
-Buildfile: /Users/mbajin/Downloads/dataflow/cs6340/build.xml
-
-liveness:
-
-run:
-     [java] Redirecting stdout to file: /Users/mbajin/Downloads/dataflow/cs6340/examples/greatest_test/chord_output/log.txt
-     [java] Redirecting stderr to file: /Users/mbajin/Downloads/dataflow/cs6340/examples/greatest_test/chord_output/log.txt
-
-BUILD SUCCESSFUL
-Total time: 2 seconds
-
-COMPARING OUTPUT TO EXPECTED (greatest_test) (liveness)
-Output matches expected.
-
-FINISHED
-mbajin cs6340 $
+$ bash run greatest_test liveness
 ```
 
-If your analysis output matches the reference, the script outputs `Output matches expected.`; otherwise, it outputs the discrepancies:
+If your analysis output matches the reference, the script outputs `Output matches expected.` Otherwise, it outputs the discrepancies:
 
 ```
 Discrepancies found.
