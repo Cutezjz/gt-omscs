@@ -1,0 +1,34 @@
+{
+  "name": "6505-fall-2016",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tests for algorithms from problem sets.",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.gatech.edu/mbajin3/6505-fall-2016"
+  },
+  "author": "Mehmet Bajin <mehmet.bajin@gatech.edu>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "benchmark": "^2.1.1",
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-exit": "0.0.2",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-mocha": "^3.0.1",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1",
+    "karma": "^1.2.0",
+    "karma-mocha": "^1.1.1",
+    "lodash": "^4.15.0",
+    "mocha": "^3.0.2"
+  }
+}
