@@ -25,11 +25,11 @@ describe('linear-search', function () {
 
   it('returns null if value is not in array', function () {
     tests = [
-      {array: [1],       value: 5},
-      {array: [2],       value: 6},
-      {array: [1, 1],    value: 7},
-      {array: [1, 2],    value: 8},
-      {array: [1, 2, 3], value: 9}
+      {array: [1],     value: 5},
+      {array: [2],     value: 6},
+      {array: [1,1],   value: 7},
+      {array: [1,2],   value: 8},
+      {array: [1,2,3], value: 9}
     ];
 
     _.forEach(tests, function (test) {
@@ -40,11 +40,11 @@ describe('linear-search', function () {
 
   it('returns index of value if value is in array', function () {
     tests = [
-      {array: [1],       value: 1, expectedIndex: 0},
-      {array: [2],       value: 2, expectedIndex: 0},
-      {array: [1, 1],    value: 1, expectedIndex: 0},
-      {array: [2, 1],    value: 1, expectedIndex: 1},
-      {array: [1, 2, 3], value: 3, expectedIndex: 2}
+      {array: [1],     value: 1, expectedIndex: 0},
+      {array: [2],     value: 2, expectedIndex: 0},
+      {array: [1,1],   value: 1, expectedIndex: 0},
+      {array: [2,1],   value: 1, expectedIndex: 1},
+      {array: [1,2,3], value: 3, expectedIndex: 2}
     ];
 
     _.forEach(tests, function (test) {
