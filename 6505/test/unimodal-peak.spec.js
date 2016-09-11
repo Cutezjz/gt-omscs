@@ -1,14 +1,14 @@
 'use strict';
 
-var _        = require('lodash');
-var expect   = require('chai').expect;
-var searcher = require('../lib/binary-search-unimodal');
+var _      = require('lodash');
+var expect = require('chai').expect;
+var finder = require('../lib/unimodal-peak');
 
-describe('binary-search-unimodal', function () {
+describe('unimodal-peak', function () {
   var tests;
   var index;
 
-  it('returns index of peak', function () {
+  it('finds the index of peak', function () {
     tests = [
       {array: [1],           expectedIndex: 0},
       {array: [2],           expectedIndex: 0},
@@ -30,8 +30,7 @@ describe('binary-search-unimodal', function () {
     ];
 
     _.forEach(tests, function (test) {
-      console.log(test);
-      index = searcher.search(test.array);
+      index = finder.find(test.array);
       expect(index).to.equal(test.expectedIndex);
     });
   });
